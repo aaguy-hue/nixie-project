@@ -1,5 +1,5 @@
 # Nixie Project
-Hi! This is a collection of all the PCB designs and software I've written for an STM32-based
+This is a collection of all the PCB designs and software I've written for an STM32-based
 Nixie tube clock.
 
 Nixie tubes are some really neat old displays from back during the 1960s, though they kept being
@@ -10,6 +10,12 @@ I wanted to make a digital clock with them.
 Note: Nixies operate at high voltage (albeit very low current), so make sure to exercise caution
 when working with them!
 
+<br>
+
+Online image of a Nixie clock (hopefully once mine is built I can replace this image with my own!)
+<img width="500" src="https://github.com/user-attachments/assets/27458fbf-4d7b-4ec2-94c8-850ae7e4c9e9" />
+
+
 
 ## Project Structure
 This is a bit unorganized and will likely soon be refactored, but at the moment this is the structure:
@@ -19,6 +25,8 @@ This is a bit unorganized and will likely soon be refactored, but at the moment 
 - nixies-us.mod: Schematic symbols for different Nixie tubes
 - Single Tube Board: A PCB to power a single Nixie tube
 - software: Software for the various projects
+  - nixie_simple: Software for breadboard experiments
+  - single_nixie: Software for single Nixie tube PCB
 - symbols: Custom schematic symbols
 
 
