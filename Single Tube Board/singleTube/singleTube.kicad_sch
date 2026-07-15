@@ -3489,7 +3489,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Transistor_BJT:BUT11"
+		(symbol "Transistor_BJT:MMBTA42"
 			(pin_names
 				(offset 0)
 				(hide yes)
@@ -3510,7 +3510,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "BUT11"
+			(property "Value" "MMBTA42"
 				(at 5.08 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3521,7 +3521,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 				(at 5.08 -1.905 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3534,7 +3534,7 @@
 					(justify left)
 				)
 			)
-			(property "Datasheet" "https://www.onsemi.com/pub/Collateral/BUT11A-D.pdf"
+			(property "Datasheet" "https://www.onsemi.com/pub/Collateral/MMBTA42LT1-D.PDF"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3546,7 +3546,7 @@
 					(justify left)
 				)
 			)
-			(property "Description" "5A Ic, 400V Vce, Silicon Power NPN Transistors, TO-220"
+			(property "Description" "0.5A Ic, 300V Vce, NPN High Voltage Transistor, SOT-23"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3568,7 +3568,7 @@
 					)
 				)
 			)
-			(property "Sim.Pins" "1=B 2=C 3=E"
+			(property "Sim.Pins" "1=B 2=E 3=C"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3579,7 +3579,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "High Voltage Power NPN Transistor"
+			(property "ki_keywords" "NPN High Voltage Transistor"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3590,7 +3590,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "TO?220*"
+			(property "ki_fp_filters" "SOT?23*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3601,7 +3601,7 @@
 					)
 				)
 			)
-			(symbol "BUT11_0_1"
+			(symbol "MMBTA42_0_1"
 				(polyline
 					(pts
 						(xy -2.54 0) (xy 0.635 0)
@@ -3638,7 +3638,7 @@
 					)
 				)
 			)
-			(symbol "BUT11_1_1"
+			(symbol "MMBTA42_1_1"
 				(polyline
 					(pts
 						(xy 0.635 0.635) (xy 2.54 2.54)
@@ -3694,9 +3694,9 @@
 					)
 				)
 				(pin passive line
-					(at 2.54 5.08 270)
+					(at 2.54 -5.08 90)
 					(length 2.54)
-					(name "C"
+					(name "E"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3712,9 +3712,9 @@
 					)
 				)
 				(pin passive line
-					(at 2.54 -5.08 90)
+					(at 2.54 5.08 270)
 					(length 2.54)
-					(name "E"
+					(name "C"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -16402,7 +16402,7 @@
 		)
 		(uuid "0dfab70b-b18a-4291-a1f1-81d9c59cbf84")
 	)
-	(label "CONTROL_D"
+	(label "CONTROL_A"
 		(at 210.82 60.96 0)
 		(effects
 			(font
@@ -16492,7 +16492,7 @@
 		)
 		(uuid "2c546e95-8344-4368-94bd-0032044d169a")
 	)
-	(label "CONTROL_A"
+	(label "CONTROL_C"
 		(at 210.82 53.34 0)
 		(effects
 			(font
@@ -16692,7 +16692,7 @@
 		)
 		(uuid "aaf0bda4-4fc1-4f70-8991-ab34ad80c31d")
 	)
-	(label "CONTROL_C"
+	(label "CONTROL_D"
 		(at 210.82 58.42 0)
 		(effects
 			(font
@@ -16791,6 +16791,115 @@
 			(justify left bottom)
 		)
 		(uuid "fc4dc835-ed41-44a1-bcd0-6b3ff78e2571")
+	)
+	(symbol
+		(lib_id "Transistor_BJT:MMBTA42")
+		(at 52.07 139.7 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "068c6541-9c97-451f-a823-c3968f3c348c")
+		(property "Reference" "Q2"
+			(at 57.15 138.4299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MMBTA42"
+			(at 57.15 140.9699 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 57.15 141.605 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/MMBTA42LT1-D.PDF"
+			(at 52.07 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "0.5A Ic, 300V Vce, NPN High Voltage Transistor, SOT-23"
+			(at 52.07 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "NPN"
+			(at 52.07 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=B 2=E 3=C"
+			(at 52.07 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "2d1db89f-fed9-499a-a5c5-0dca4d5fae38")
+		)
+		(pin "1"
+			(uuid "882f3292-bda2-434d-9f08-aeb896f283ca")
+		)
+		(pin "3"
+			(uuid "42e37edf-5ff8-4de5-a8ed-c35955a4216f")
+		)
+		(instances
+			(project "singleTube"
+				(path "/416fc244-fffc-4466-89c1-5a0f0bfc8b8d"
+					(reference "Q2")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Device:Crystal_GND24")
@@ -17326,116 +17435,6 @@
 			(project "singleTube"
 				(path "/416fc244-fffc-4466-89c1-5a0f0bfc8b8d"
 					(reference "C8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Transistor_BJT:BUT11")
-		(at 58.42 181.61 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "166c90d5-4b3f-40d3-a62c-b5311b9302ff")
-		(property "Reference" "Q1"
-			(at 53.34 180.3399 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BUT11"
-			(at 53.34 182.8799 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-			(at 53.34 183.515 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/BUT11A-D.pdf"
-			(at 58.42 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "5A Ic, 400V Vce, Silicon Power NPN Transistors, TO-220"
-			(at 58.42 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Device" "NPN"
-			(at 58.42 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=B 2=C 3=E"
-			(at 58.42 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "93d4e4a4-ed5e-467d-9315-1bdecc9669e2")
-		)
-		(pin "2"
-			(uuid "611c1b17-5146-44a7-82c3-2c25baf15acd")
-		)
-		(pin "3"
-			(uuid "0c001496-8931-408c-96e3-ad8b7a7edce0")
-		)
-		(instances
-			(project "singleTube"
-				(path "/416fc244-fffc-4466-89c1-5a0f0bfc8b8d"
-					(reference "Q1")
 					(unit 1)
 				)
 			)
@@ -20118,6 +20117,116 @@
 		)
 	)
 	(symbol
+		(lib_id "Transistor_BJT:MMBTA42")
+		(at 58.42 181.61 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8835cfbc-d464-4348-b380-db117b2f87bc")
+		(property "Reference" "Q1"
+			(at 53.34 180.3399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MMBTA42"
+			(at 53.34 182.8799 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 53.34 183.515 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/MMBTA42LT1-D.PDF"
+			(at 58.42 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "0.5A Ic, 300V Vce, NPN High Voltage Transistor, SOT-23"
+			(at 58.42 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "NPN"
+			(at 58.42 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=B 2=E 3=C"
+			(at 58.42 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "d2eef179-1da0-4f9c-aca5-52e5f9bc90a8")
+		)
+		(pin "1"
+			(uuid "0861eb0c-869d-408a-89f2-18afe52fdd76")
+		)
+		(pin "3"
+			(uuid "ffc3f169-76d9-4820-8b0e-45a34af16595")
+		)
+		(instances
+			(project "singleTube"
+				(path "/416fc244-fffc-4466-89c1-5a0f0bfc8b8d"
+					(reference "Q1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "nixie-project:NCH8200HV")
 		(at 33.02 154.94 0)
 		(unit 1)
@@ -21004,115 +21113,6 @@
 			(project "singleTube"
 				(path "/416fc244-fffc-4466-89c1-5a0f0bfc8b8d"
 					(reference "C5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Transistor_BJT:BUT11")
-		(at 52.07 139.7 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b392cdb7-0818-445a-bbef-99e5c3242f2d")
-		(property "Reference" "Q2"
-			(at 57.15 138.4299 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BUT11"
-			(at 57.15 140.9699 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-			(at 57.15 141.605 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/BUT11A-D.pdf"
-			(at 52.07 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Description" "5A Ic, 400V Vce, Silicon Power NPN Transistors, TO-220"
-			(at 52.07 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Device" "NPN"
-			(at 52.07 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=B 2=C 3=E"
-			(at 52.07 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "3f7cbb37-9a8f-4459-8d5c-eca1414570c0")
-		)
-		(pin "2"
-			(uuid "4702e91b-522e-43bc-9e62-8210c09e32d7")
-		)
-		(pin "3"
-			(uuid "1855948d-a0a9-4a64-819a-959cc2a1d061")
-		)
-		(instances
-			(project "singleTube"
-				(path "/416fc244-fffc-4466-89c1-5a0f0bfc8b8d"
-					(reference "Q2")
 					(unit 1)
 				)
 			)
