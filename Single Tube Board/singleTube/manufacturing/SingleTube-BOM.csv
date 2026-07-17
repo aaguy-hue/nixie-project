@@ -6,7 +6,7 @@
 "22u","C14,C15","Capacitor_SMD:C_0805_2012Metric","C45783"
 "1k5","R1,R3","Resistor_SMD:R_0402_1005Metric","C25867"
 "4k7","R11,R12","Resistor_SMD:R_1206_3216Metric","C17936"
-"10k","R2","Resistor_SMD:R_0402_1005Metric","C25744"
+"10k","R2","Resistor_SMD:R_0402_1005Metric","C173683"
 "10k","R4","Resistor_SMD:R_1206_3216Metric","C17902"
 "30k","R7,R10","Resistor_SMD:R_1206_3216Metric","C17999"
 "32.768KHz","Y2","Crystal:Crystal_SMD_2520-4Pin_2.5x2.0mm","C21547573"
