@@ -3,7 +3,7 @@ unsigned long previousMillis = 0;
 
 typedef struct {
   int A, B, C, D;
-  int num;
+  char num;
   bool scroll;
 } Tube;
 
@@ -54,28 +54,28 @@ void updateTube(Tube *tube) {
 }
 
 void readSerialData() {
-  if (!Serial.available()) return;
+  if (Serial.available() < 2) return;
 
   int tube_num = Serial.read();
   int val = Serial.read();
 
-  Tube tube;
+  Tube *tube;
   if (tube_num == 1) {
-    tube = Tube1;
+    tube = &Tube1;
   } else if (tube_num == 2) {
-    tube = Tube2;
+    tube = &Tube2;
   } else {
     return;
   }
 
   if (val == -1) return;
   if (val == 16) {
-    tube.scroll = true;
+    tube->scroll = true;
   } else {
-    tube.scroll = false;
+    tube->scroll = false;
     Serial.println("Received value:" + String(val));
-    tube.num = (char) val;
-    updateTube(&tube);
+    tube->num = (char) val;
+    updateTube(tube);
   }
 }
 
