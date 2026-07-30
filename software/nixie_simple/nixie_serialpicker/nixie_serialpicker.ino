@@ -1,7 +1,7 @@
-const int C = 8;
-const int B = 10;
-const int D = 11;
-const int A = 12;
+const int C = 12;
+const int B = 11;
+const int D = 10;
+const int A = 9;
 
 bool scroll = false;
 char num = 10;
