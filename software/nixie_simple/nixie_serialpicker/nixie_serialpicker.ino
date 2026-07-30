@@ -32,13 +32,17 @@ void writeNumber(char num) {
 void loop() {
   if (Serial.available()) {
     int val = Serial.read();
-    if (val == -1) return;
-    if (val == 16) scroll = true; return; // enable scrolling animation
 
-    scroll = false;
-    Serial.println("Received value:" + String(val));
-    num = ((char) val) % 10;
-    writeNumber(num);
+    if (val == -1) return;
+    if (val == 16) {
+      scroll = true;
+    } else {
+      scroll = false;
+      Serial.println("Received value:" + String(val));
+      num = (char) val;
+      writeNumber(num);
+    }
+
   }
 
   unsigned long currentMillis = millis();
