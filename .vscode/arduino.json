@@ -1,4 +1,3 @@
 {
-    "board": "arduino:mbed_nano:nano33ble",
-    "sketch": "software\\nixie_simple\\nixie_serialpicker.ino"
+    "board": "arduino:mbed_nano:nano33ble"
 }
