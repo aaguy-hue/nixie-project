@@ -1,10 +1,17 @@
+// Tube 1 constants
 const int C = 12;
 const int B = 11;
 const int D = 10;
 const int A = 9;
 
+// Tube 2 constants
+// const int A = 8;
+// const int D = 7;
+// const int B = 6;
+// const int C = 5;
+
 bool scroll = false;
-char num = 10;
+char num = 4;
 
 const unsigned long intervalMillis = 50;
 unsigned long previousMillis = 0;

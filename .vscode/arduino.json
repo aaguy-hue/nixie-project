@@ -1,3 +1,5 @@
 {
-    "board": "arduino:mbed_nano:nano33ble"
+    "board": "arduino:mbed_nano:nano33ble",
+    "sketch": "software\\breadboard_tests\\nixie_multiple\\nixie_multiple.ino",
+    "port": "COM4"
 }
