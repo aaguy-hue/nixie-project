@@ -8,6 +8,7 @@ while True:
         "Nixie Tube Controller\n"
         "  Enter a tube number and a digit/command, e.g. '1 7', '2 off', or '1 scroll'\n"
         "  Commands: off, scroll\n"
+        "  Type three numbers separated by spaces to set all three tubes at once, e.g. '1 2 3'\n"
         "  Type 'exit' or 'quit' to exit the program\n"
         "> "
     ).strip().lower()
@@ -15,6 +16,19 @@ while True:
         ser.write(bytes([1,10]))  # Sends 10 to turn off the nixie tube
         ser.write(bytes([2,10]))  # Sends 10 to turn off the nixie tube
         break
+    elif len(user_input.split()) == 3:
+        try:
+            tube1, tube2, tube3 = map(int, user_input.split())
+        except ValueError:
+            print("Invalid input. Please enter three numbers between 0 and 9.")
+            continue
+
+        if all(0 <= tube <= 9 for tube in (tube1, tube2, tube3)):
+            ser.write(bytes([1, tube1]))
+            ser.write(bytes([2, tube2]))
+            ser.write(bytes([3, tube3]))
+        else:
+            print("Please enter numbers between 0 and 9 for all three tubes.")
     else:
         tube_num, cmd = user_input.split()[0:2]
         try:
