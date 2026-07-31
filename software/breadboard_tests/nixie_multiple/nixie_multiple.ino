@@ -26,6 +26,22 @@ Tube Tube2 = {
   .scroll = false
 };
 
+Tube Tube3 = {
+  .A = 4,
+  .B = 2,
+  .C = A7,
+  .D = 3,
+  .num = 10,
+  .scroll = false
+};
+
+Tube tubes[] = {Tube1, Tube2, Tube3};
+
+
+size_t totalTubeCount() {
+  return sizeof(tubes)/sizeof(tubes[0]);
+}
+
 void initializeTubePins(Tube *tube) {
   pinMode(tube->A, OUTPUT);
   pinMode(tube->B, OUTPUT);
@@ -34,11 +50,13 @@ void initializeTubePins(Tube *tube) {
 }
 
 void setup() {
-  initializeTubePins(&Tube1);
-  initializeTubePins(&Tube2);
+  for (int i = 0; i < totalTubeCount(); i++) {
+    initializeTubePins(&tubes[i]);
+  }
   
-  updateTube(&Tube1);
-  updateTube(&Tube2);
+  for (int i = 0; i < totalTubeCount(); i++) {
+    updateTube(&tubes[i]);
+  }
 
   Serial.begin(9600);
   Serial.println("Enter a number between 0 and 9 to display on the nixie tube, or '10' to turn it off.");
@@ -60,13 +78,10 @@ void readSerialData() {
   int val = Serial.read();
 
   Tube *tube;
-  if (tube_num == 1) {
-    tube = &Tube1;
-  } else if (tube_num == 2) {
-    tube = &Tube2;
-  } else {
+  if (tube_num < 1 || tube_num > totalTubeCount()) {
     return;
   }
+  tube = &tubes[tube_num-1];
 
   if (val == -1) return;
   if (val == 16) {
@@ -86,13 +101,11 @@ void loop() {
   if (currentMillis - previousMillis >= intervalMillis) {
     previousMillis = currentMillis;
 
-    if (Tube1.scroll) {
-      Tube1.num = (Tube1.num+1)%10;
-      updateTube(&Tube1);
-    }
-    if (Tube2.scroll) {
-      Tube2.num = (Tube2.num+1)%10;
-      updateTube(&Tube2);
+    for (int i = 0; i < totalTubeCount(); i++) {
+      if (tubes[i].scroll) {
+        tubes[i].num = (tubes[i].num+1)%10;
+        updateTube(&tubes[i]);
+      }
     }
   }
 }

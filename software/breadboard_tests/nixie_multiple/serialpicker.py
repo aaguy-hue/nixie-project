@@ -20,7 +20,7 @@ while True:
         try:
             tube_num = int(tube_num)
         except ValueError:
-            print("Invalid tube number. Please enter 1 or 2.")
+            print("Invalid tube number. Please enter a number between 1 and 3.")
             continue
         if cmd == 'off':
             ser.write(bytes([tube_num, 10]))
@@ -33,8 +33,8 @@ while True:
                 print("Invalid digit. Please enter a number between 0 and 9.")
                 continue
 
-            if tube_num not in [1, 2]:
-                print("Please enter a valid tube number (1 or 2).")
+            if tube_num not in range(1, 4):
+                print("Please enter a valid tube number (1, 2, or 3).")
             else:
                 if 0 <= digit <= 9:
                     ser.write(bytes([tube_num, digit]))
