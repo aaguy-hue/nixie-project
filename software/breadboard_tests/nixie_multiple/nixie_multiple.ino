@@ -26,6 +26,7 @@ Tube Tube2 = {
   .scroll = false
 };
 
+// the digit 4 is not connected here bc the leads were too short to connect to my jumper, so I just left it unconnected
 Tube Tube3 = {
   .A = 4,
   .B = 2,
@@ -35,7 +36,17 @@ Tube Tube3 = {
   .scroll = false
 };
 
-Tube tubes[] = {Tube1, Tube2, Tube3};
+// the digits 9 and 0 are not connected
+Tube Tube4 = {
+  .A = A0,
+  .B = A2,
+  .C = A3,
+  .D = A1,
+  .num = 10,
+  .scroll = false
+};
+
+Tube tubes[] = {Tube1, Tube2, Tube3, Tube4};
 
 
 size_t totalTubeCount() {
