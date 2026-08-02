@@ -8,7 +8,7 @@ typedef struct {
 } Tube;
 
 // although I wish I could list in pin order, C++, unlike C, requires designated initializers to be in order
-Tube Tube1 = {
+static Tube Tube1 = {
   .A = 9,
   .B = 11,
   .C = 12,
@@ -16,7 +16,7 @@ Tube Tube1 = {
   .num = 10
 };
 
-Tube Tube2 = {
+static Tube Tube2 = {
   .A = 8,
   .B = 6,
   .C = 5,
@@ -25,7 +25,7 @@ Tube Tube2 = {
 };
 
 // the digit 4 is not connected here bc the leads were too short to connect to my jumper, so I just left it unconnected
-Tube Tube3 = {
+static Tube Tube3 = {
   .A = 4,
   .B = 2,
   .C = A7,
@@ -34,7 +34,7 @@ Tube Tube3 = {
 };
 
 // the digits 9 and 0 are not connected
-Tube Tube4 = {
+static Tube Tube4 = {
   .A = A0,
   .B = A2,
   .C = A3,
@@ -42,14 +42,14 @@ Tube Tube4 = {
   .num = 10
 };
 
-Tube tubes[] = {Tube1, Tube2, Tube3, Tube4};
+static const Tube tubes[] = {Tube1, Tube2, Tube3, Tube4};
 
 
-size_t totalTubeCount() {
+static size_t totalTubeCount() {
   return sizeof(tubes)/sizeof(tubes[0]);
 }
 
-void initializeTubePins(Tube *tube) {
+static void initializeTubePins(Tube *tube) {
   pinMode(tube->A, OUTPUT);
   pinMode(tube->B, OUTPUT);
   pinMode(tube->C, OUTPUT);
@@ -66,7 +66,7 @@ void setup() {
 
 // Write a number to the nixie tube
 // Digits above 9 will turn off the nixie tube bc of how the SN74141/K155ID1 works
-void updateTube(Tube *tube) {
+static void updateTube(Tube *tube) {
   digitalWrite(tube->D, (tube->num >> 3)&1);
   digitalWrite(tube->C, (tube->num >> 2)&1);
   digitalWrite(tube->B, (tube->num >> 1)&1);
@@ -74,7 +74,7 @@ void updateTube(Tube *tube) {
 }
 
 // over serial, my python program will periodially send the current time (maybe every hour or so) by sending the seconds since the epoch
-void readSerialData() {
+static void readSerialData() {
   if (!Serial.available()) return;
 
   String input = Serial.readStringUntil('\n');
@@ -87,7 +87,7 @@ void readSerialData() {
 }
 
 // based on time since epoch set tube digits to the current time in HH:MM format
-void updateTubeNumbers() {
+static void updateTubeNumbers() {
     time_t current_time = time(NULL);
     struct tm *time_info = localtime(&current_time);
     
