@@ -42,7 +42,7 @@ static Tube Tube4 = {
   .num = 10
 };
 
-static const Tube tubes[] = {Tube1, Tube2, Tube3, Tube4};
+static Tube tubes[] = {Tube1, Tube3, Tube4, Tube2};
 
 
 static size_t totalTubeCount() {
