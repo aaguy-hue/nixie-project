@@ -2,9 +2,11 @@
 // #include <time.h>
 // mbed.h provides functions to get the current time
 
+// note: look into reordering fields for better packing
 typedef struct {
   int A, B, C, D;
   char num;
+  time_t scrollStart; // on arduino, time_t is an unsigned long int
 } Tube;
 
 // although I wish I could list in pin order, C++, unlike C, requires designated initializers to be in order
@@ -13,7 +15,8 @@ static Tube Tube1 = {
   .B = 11,
   .C = 12,
   .D = 10,
-  .num = 10
+  .num = 10,
+  .scrollStart = 0,
 };
 
 static Tube Tube2 = {
@@ -21,7 +24,8 @@ static Tube Tube2 = {
   .B = 6,
   .C = 5,
   .D = 7,
-  .num = 10
+  .num = 10,
+  .scrollStart = 0,
 };
 
 // the digit 4 is not connected here bc the leads were too short to connect to my jumper, so I just left it unconnected
@@ -30,7 +34,8 @@ static Tube Tube3 = {
   .B = 2,
   .C = A7,
   .D = 3,
-  .num = 10
+  .scrollStart = 0,
+  .num = 10,
 };
 
 // the digits 9 and 0 are not connected
@@ -39,7 +44,8 @@ static Tube Tube4 = {
   .B = A2,
   .C = A3,
   .D = A1,
-  .num = 10
+  .num = 10,
+  .scrollStart = 0,
 };
 
 static Tube tubes[] = {Tube1, Tube3, Tube4, Tube2};
@@ -66,7 +72,7 @@ void setup() {
 
 // Write a number to the nixie tube
 // Digits above 9 will turn off the nixie tube bc of how the SN74141/K155ID1 works
-static void updateTube(Tube *tube) {
+static void updateTubeDisplay(Tube *tube) {
   digitalWrite(tube->D, (tube->num >> 3)&1);
   digitalWrite(tube->C, (tube->num >> 2)&1);
   digitalWrite(tube->B, (tube->num >> 1)&1);
@@ -86,6 +92,19 @@ static void readSerialData() {
   }
 }
 
+static void updateTubeNumber(Tube *tube, int new_num) {
+  if (!tube->scrollStart) {
+    tube->num = new_num;
+  } else {
+    tube->num = (tube->num + 1) % 10;
+
+    // scroll for 2 sec
+    if (time(NULL) - tube->scrollStart >= 2) {
+      tube->scrollStart = 0;
+    }
+  }
+}
+
 // based on time since epoch set tube digits to the current time in HH:MM format
 static void updateTubeNumbers() {
     time_t current_time = time(NULL);
@@ -93,11 +112,18 @@ static void updateTubeNumbers() {
     
     int hour = time_info->tm_hour;
     int minute = time_info->tm_min;
+
+    // every 2 minutes, scroll tubes for anti-cathode poisoning
+    if (minute % 2 == 0 && time_info->tm_sec == 0) {
+        for (int i = 0; i < totalTubeCount(); i++) {
+            tubes[i].scrollStart = current_time;
+        }
+    }
     
-    tubes[0].num = hour / 10;      // tens place of hour
-    tubes[1].num = hour % 10;      // ones place of hour
-    tubes[2].num = minute / 10;    // tens place of minute
-    tubes[3].num = minute % 10;    // ones place of minute
+    updateTubeNumber(&tubes[0], hour / 10);      // tens place of hour
+    updateTubeNumber(&tubes[1], hour % 10);      // ones place of hour
+    updateTubeNumber(&tubes[2], minute / 10);    // tens place of minute
+    updateTubeNumber(&tubes[3], minute % 10);    // ones place of minute
 }
 
 void loop() {
@@ -106,6 +132,6 @@ void loop() {
 
   for (int i = 0; i < totalTubeCount(); i++) {
     Tube *tube = &tubes[i];
-    updateTube(tube);
+    updateTubeDisplay(tube);
   }
 }
