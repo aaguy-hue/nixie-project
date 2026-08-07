@@ -76,6 +76,10 @@ void setup() {
 // Write a number to the nixie tube
 // Digits above 9 will turn off the nixie tube bc of how the SN74141/K155ID1 works
 void updateTube(Tube *tube) {
+  // log tube 3's pin states for debugging, pins ABCD
+  if (tube == &tubes[2]) {
+    Serial.println(String("Digit 3 pins set value: ") + String((int)(tube->num&1)) + String((int)((tube->num>>1)&1)) + String((int)((tube->num>>2)&1)) + String((int)((tube->num>>3)&1)));
+  }
   digitalWrite(tube->D, (tube->num >> 3)&1);
   digitalWrite(tube->C, (tube->num >> 2)&1);
   digitalWrite(tube->B, (tube->num >> 1)&1);
@@ -99,7 +103,7 @@ void readSerialData() {
     tube->scroll = true;
   } else {
     tube->scroll = false;
-    Serial.println("Received value:" + String(val));
+    // Serial.println("Received value:" + String(val));
     tube->num = (char) val;
     updateTube(tube);
   }
@@ -107,6 +111,11 @@ void readSerialData() {
 
 void loop() {
   readSerialData();
+
+  Serial.println(String("Digit 3 Number: ") + String((int)Tube3.num));
+  Serial.println(String("Digit 3 pins actual value: ") + String(digitalRead(Tube3.A)) + String(digitalRead(Tube3.B)) + String(digitalRead(Tube3.C)) + String(digitalRead(Tube3.D)));
+
+  updateTube(&tubes[2]);
 
   unsigned long currentMillis = millis();
   if (currentMillis - previousMillis >= intervalMillis) {

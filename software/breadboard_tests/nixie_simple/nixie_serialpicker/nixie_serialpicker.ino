@@ -1,14 +1,17 @@
 // Tube 1 constants
-const int C = 12;
-const int B = 11;
-const int D = 10;
-const int A = 9;
+// const int C = 12;
+// const int B = 11;
+// const int D = 10;
+// const int A = 9;
 
 // Tube 2 constants
 // const int A = 8;
 // const int D = 7;
 // const int B = 6;
 // const int C = 5;
+
+// Tube 3 constants
+const int A{4}, B{2}, C{A7}, D{3};
 
 bool scroll = false;
 char num = 4;
